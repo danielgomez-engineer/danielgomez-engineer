@@ -62,7 +62,7 @@ Si tienes un proyecto interesante o una idea en la que pueda aportar, ¡me encan
 Puedo contribuir con mi experiencia en **Java, Spring Boot y desarrollo full stack**, además de compartir buenas prácticas y seguir aprendiendo juntos. 🚀  
 
 📫 **Contacto:**  
-- 💼 [LinkedIn](https://www.likedin.com/in/daniel-felipe-g%C3%B3mez-ferreira-050062276/)  
+- 💼 [LinkedIn](https://www.linkedin.com/in/daniel-felipe-g%C3%B3mez-ferreira-050062276/)  
 - ✉️ [danielf23.dev@gmail.com](danielf23.dev@gmail.com)  
 - 🌐 Portafolio (en construcción)  
 
