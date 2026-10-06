@@ -1,75 +1,48 @@
-<h1 align="center">👋 ¡Hola! Soy Daniel Felipe Gómez Ferreira</h1>
-<h3 align="center">💻 Developer Java Junior | 🚀 Creando Software Robusto y Escalable</h3>
+# Daniel Felipe Gómez Ferreira
 
----
+Java Full Stack Developer con foco en backend: Java, Spring Boot y microservicios, con Angular y React en el frontend. Más de 2 años construyendo APIs REST y aplicaciones web de punta a punta.
 
-### 🧠 Sobre mí
+## Nexus
 
-Soy **Ingeniero de Sistemas en formación (9.º semestre)** con alrededor de **2 años de experiencia práctica** en el ecosistema **Java Full Stack**.  
-Apasionado por la **Arquitectura Limpia**, la **Programación Orientada a Objetos (POO)** y el desarrollo de **APIs RESTful seguras, eficientes y mantenibles** con **Java y Spring Boot**.
+SaaS multi-tenant de punto de venta (POS), inventario y facturación electrónica para pequeños negocios en Colombia. Es un producto propio que diseñé y desarrollé como único desarrollador. El código es privado.
 
-🎯 **Objetivo profesional:** Finalizar mi carrera universitaria y continuar especializándome en **arquitecturas modernas**, **buenas prácticas de desarrollo** y **tecnologías cloud-native**, fortaleciendo mi perfil técnico y mi capacidad para construir soluciones de calidad.
+```mermaid
+flowchart LR
+    W["Nexus Core Web<br/>Angular 20"] -->|login| H["Heimdall<br/>identidad y acceso"]
+    H -->|"JWT con empresa y roles"| W
+    W -->|"peticiones con JWT"| N["Nexus Core<br/>POS, inventario, facturación"]
+    N -->|"factura electrónica"| F["Factus<br/>servicio externo (DIAN)"]
+```
 
----
+Los problemas técnicos que resolví:
 
-### 🛠️ Stack Tecnológico & Herramientas
+- **Emisión sin facturas duplicadas.** La factura se guarda como pendiente antes de llamar a Factus, la llamada HTTP se hace fuera de la transacción y el resultado se registra en una segunda. Índices únicos impiden la doble emisión ante un doble clic o un fallo de red.
+- **Sin sobreventa de stock.** Bloqueo pesimista de productos en ventas simultáneas.
+- **Credenciales por empresa.** Las credenciales de Factus de cada empresa se cifran con AES-256-GCM, ligadas al id de la empresa.
+- **Aislamiento multi-tenant.** Heimdall emite el JWT con empresa y roles; Nexus Core lo valida y filtra cada consulta por empresa.
 
-Mi enfoque principal está en el **backend**, con una comprensión integral del desarrollo **full stack** y metodologías de trabajo ágiles.
+La integración con Factus está validada en su ambiente de pruebas.
 
-| Categoría | Tecnologías |
-|------------|-------------|
-| **Backend & Core** | ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white) ![JUnit](https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logo=junit5&logoColor=white) ![Mockito](https://img.shields.io/badge/Mockito-239120?style=for-the-badge&logoColor=white) |
-| **Bases de Datos** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white) ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white) |
-| **Testing & Calidad** | ![JUnit](https://img.shields.io/badge/Pruebas%20Unitarias-JUnit%20%26%20Mockito-blue?style=for-the-badge) ![Clean Code](https://img.shields.io/badge/Clean%20Code-Principios%20SOLID-orange?style=for-the-badge) |
-| **Metodologías** | ![Agile](https://img.shields.io/badge/Metodologías-%20Agile%20%7C%20Scrum-blueviolet?style=for-the-badge&logo=scrumalliance&logoColor=white) |
-| **Control & Build** | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) |
-| **Frontend (básico)** | ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005C0F?style=for-the-badge&logo=thymeleaf&logoColor=white) |
-| **Explorando** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white) |
+Stack: Java 21, Spring Boot, Spring Security, JPA/Hibernate, PostgreSQL, Flyway, Angular 20, TypeScript, Docker. Desplegado en Render, Vercel y Supabase.
 
----
+## Proyectos públicos
 
-### ✨ Proyectos Clave
+- **[Jarvis](https://github.com/danielgomez-engineer/jarvis)**: gestor de tareas con autenticación, hecho para practicar Next.js de punta a punta. Sesión con JWT en cookie httpOnly, rutas protegidas en el servidor y API que filtra cada consulta por el usuario del token. [Demo](https://jarvis-azure-eta.vercel.app)
 
-Estos proyectos reflejan mi capacidad para **diseñar, desarrollar y desplegar** aplicaciones completas, aplicando principios sólidos de desarrollo y arquitectura.
+## Stack
 
-#### 🎯 [Fundaem - Aplicación de Gestión de Eventos](https://fundaem-fc6s.onrender.com/)
-**Descripción:** Aplicación web integral para la gestión de eventos de una fundación sin fines de lucro.  
-**Rol:** Desarrollador Full Stack — responsable de la arquitectura, seguridad y funcionalidades principales.  
-**Tecnologías:** Java 17, Spring Boot 3.x, Spring MVC, Hibernate/JPA, PostgreSQL, Thymeleaf.  
-**Destaque:** Backend sólido con integración de capa de presentación dinámica y manejo de roles de usuario.  
+- **Backend:** Java 21, Spring Boot, Spring Security, JPA/Hibernate, microservicios, API REST, JWT, JUnit, Node.js
+- **Frontend:** Angular, React, TypeScript, JavaScript, Next.js, HTML5, CSS3, Tailwind CSS
+- **Bases de datos:** PostgreSQL, MySQL, SQL, Flyway, Prisma
+- **Herramientas:** Docker, Git, GitHub, Azure DevOps, Jira, JasperReports, Maven, Gradle, Scrum
+- **En formación:** Python, FastAPI, análisis de datos y machine learning
 
----
+## Formación
 
-#### 📚 [Learniverse - Plataforma de Aprendizaje de Programación](https://learniverse-drw7.onrender.com/)
-**Descripción:** Biblioteca digital que organiza conceptos de programación con ejemplos y recursos educativos.  
-**Tecnologías:** Java 17, Spring Boot 3.5.4, MySQL, Gradle, Thymeleaf.  
-**Planes a futuro:** Migrar el frontend a React y exponer una API REST para integraciones externas.  
-**Destaque:** CRUD completo, autenticación de usuarios, diseño de base de datos y despliegue en la nube.  
+- Ingeniería de Sistemas (UNAD)
+- Especialización en Ciencia de Datos y Analítica (UNAD), en curso
 
----
+## Contacto
 
-### 🌱 Planes a Futuro
-
-- Finalizar mi carrera universitaria y especializarme en **arquitecturas de software modernas**.  
-- Ampliar mis proyectos hacia **microservicios** y **contenedorización con Docker y Kubernetes**.  
-- Integrarme en comunidades técnicas y **aportar en proyectos open source**.  
-
----
-
-### 🤝 Colaboremos
-
-Si tienes un proyecto interesante o una idea en la que pueda aportar, ¡me encantaría colaborar!  
-Puedo contribuir con mi experiencia en **Java, Spring Boot y desarrollo full stack**, además de compartir buenas prácticas y seguir aprendiendo juntos. 🚀  
-
-📫 **Contacto:**  
-- 💼 [LinkedIn](https://www.linkedin.com/in/daniel-felipe-g%C3%B3mez-ferreira-050062276/)  
-- ✉️ [danielf23.dev@gmail.com](danielf23.dev@gmail.com)  
-- 🌐 Portafolio (en construcción)  
-
----
-
-<div align="center">
-
-✨ *Gracias por visitar mi perfil. Mi compromiso es con la evolución constante, el aprendizaje continuo y la excelencia técnica.* ✨  
-
-</div>
+- LinkedIn: [linkedin.com/in/danielgomez-dev](https://www.linkedin.com/in/danielgomez-dev)
+- Correo: [danielf23.dev@gmail.com](mailto:danielf23.dev@gmail.com)
